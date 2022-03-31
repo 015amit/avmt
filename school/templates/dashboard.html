@@ -69,7 +69,13 @@
               <div class="row">
                 <div class="col">
                   <label for="">Attach Pdf</label>
-                  <input class="form-control" id="noticepdf" name="timage" type="file" accept=".pdf" />
+                  <input
+                    class="form-control"
+                    id="noticepdf"
+                    name="timage"
+                    type="file"
+                    accept=".pdf"
+                  />
                   <small>(file should be pdf and less than 500kb.)</small>
                 </div>
               </div>
@@ -132,8 +138,17 @@
               <div class="row">
                 <div class="col">
                   <label for="">Image</label>
-                  <input class="form-control" id="teacherimg" name="timage" type="file" accept=".jpg" />
-                  <small>(file should be in '.jpg' format and less than 200kb)</small>
+                  <input
+                    class="form-control"
+                    id="teacherimg"
+                    name="timage"
+                    type="file"
+                    accept=".jpg"
+                  />
+                  <small
+                    >(file should be in '.jpg' format and less than
+                    200kb)</small
+                  >
                 </div>
               </div>
               <br />
@@ -241,13 +256,14 @@
           <div id="ui">
             <form
               class="form-group"
-              action="{{url_for('addimg')}}"
+              action="{{url_for('addimage')}}"
               method="POST"
+              enctype="multipart/form-data"
             >
               <div class="row">
                 <div class="col">
                   <label for="">Image</label>
-                  <input name="img" type="file" class="form-control-file" />
+                  <input name="image" type="file" class="form-control-file" />
                 </div>
               </div>
 
@@ -322,20 +338,19 @@
   var uploadField = document.getElementById("noticepdf");
   var teacherimage = document.getElementById("teacherimg");
 
-  uploadField.onchange = function() {
-    if(this.files[0].size > 500000){
-       alert("File is too big!");
-       this.value = "";
-    };
+  uploadField.onchange = function () {
+    if (this.files[0].size > 500000) {
+      alert("File is too big!");
+      this.value = "";
+    }
   };
-  teacherimage.onchange = function() {
-    if(this.files[0].size > 200000){
-       alert("File is too big!");
-       this.value = "";
-    };
+  teacherimage.onchange = function () {
+    if (this.files[0].size > 200000) {
+      alert("File is too big!");
+      this.value = "";
+    }
   };
 </script>
-
 
 <script>
   function openTab(evt, tabName) {
@@ -352,7 +367,5 @@
     evt.currentTarget.className += " active";
   }
 </script>
-
-
 
 {% endblock %}
