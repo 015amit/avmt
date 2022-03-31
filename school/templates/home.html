@@ -1,0 +1,107 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link rel="stylesheet" href="static/css/home.css" />
+{% endblock %} {% include 'slide.html' %} {% block content %}
+
+<marquee
+  width="100%"
+  direction="left"
+  height="100px"
+  id="phone"
+  onmouseover="this.stop();"
+  onmouseout="this.start();"
+>
+  {% for notice in notices %} {% if notice[3] %}
+  <a
+    style="color: #fff"
+    href="{{url_for('noticepdf', title = notice[1])}}"
+    target="_blank"
+    >{{ notice[1] }}</a
+  >
+  {% else %} {{ notice[1] }} {% endif %}
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  {% endfor %}
+</marquee>
+
+<div class="left">
+  <div class="card" id="notice">
+    <div class="card-body text-center">
+      <h2 class="heading">Notices</h2>
+      <marquee
+        width="100%"
+        direction="up"
+        height="300px"
+        onmouseover="this.stop();"
+        onmouseout="this.start();"
+      >
+        {% for notice in notices %} {% if notice[3] %}
+        <a href="{{url_for('noticepdf', title = notice[1])}}" target="_blank"
+          ><p>{{ notice[1] }}</p></a
+        >
+        {% else %}
+        <p>{{ notice[1] }}</p>
+        {% endif %} {% endfor %}
+      </marquee>
+    </div>
+  </div>
+</div>
+
+<!-- **** -->
+<div class="right">
+  <div class="card" id="m1">
+    <div class="card-header">Vision</div>
+
+    <div class="card-body" style="flex-direction: row-reverse">
+      <p class="card-text">
+        Founded in 1997, Adarsh Vidya Mandir has grown to become a poineer in
+        the education in Koderma, Jharkhand, located in Tilokari, Koderma,
+        Jharkhnad. This school is for wholesome development of a child. Here,
+        from 1st to 10th class is running since last 20 years.Every year, our
+        10th board result has been outstanding. We not only provide education,
+        we inculcate ethics, manner and social values in each student so that
+        he/she can contributes in developement of country and society. We have
+        science lab, sport facilities, liberary. We provide free education for
+        poor students too.
+      </p>
+    </div>
+  </div>
+
+  <div class="card" data-aos="fade-in" id="m2">
+    <div class="card-header">Mission</div>
+    <div class="card-body">
+      <p class="card-text">
+        Our goal is to focus on the holistic development of each child, and to
+        give them a competitive edge with the help of an extensive curriculum
+        and dynamic teaching methodologies. Morals : The ability to discriminate
+        between right and wrong Values : The unique beliefs and feelings of an
+        individual Ethics : The principles that define everyday behaviour
+        Problem-solving Techniques : The skill to resolve difficult issues
+        Positive Attitude : The highest indicator of a healthy personality
+      </p>
+    </div>
+  </div>
+
+  <div class="card" data-aos="fade-out" id="m3">
+    <div class="card-header">Goal</div>
+    <div class="card-body">
+      <p class="card-text">
+        Our goal is to focus on the holistic development of each child, and to
+        give them a competitive edge with the help of an extensive curriculum
+        and dynamic teaching methodologies. Morals : The ability to discriminate
+        between right and wrong Values : The unique beliefs and feelings of an
+        individual Ethics : The principles that define everyday behaviour
+        Problem-solving Techniques : The skill to resolve difficult issues
+        Positive Attitude : The highest indicator of a healthy personality
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    offset: 300,
+    duration: 1000,
+  });
+</script>
+{% endblock %}

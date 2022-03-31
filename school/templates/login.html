@@ -1,0 +1,87 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link rel="stylesheet" href="static/css/login.css" />
+{% endblock %}{% include 'slide.html' %} {% block content %}
+
+<div class="container">
+  <h2 class="heading">Login</h2>
+  {% include 'messages.html' %}
+  <br /><br />
+
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div id="ui">
+        <form class="form-group" action="{{url_for('login')}}" method="POST">
+          <div class="row">
+            <div class="col">
+              <label for="">Roll No</label>
+              <input class="form-control" name="name" type="text" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="">Date Of Birth:</label>
+              <input class="form-control" name="dob" type="date" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="">Class</label>
+              <select name="class" class="form-control">
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+                <option value="3">Class 3</option>
+                <option value="4">Class 4</option>
+                <option value="5">Class 5</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+              </select>
+            </div>
+          </div>
+          <br />
+
+          <center>
+            <input style="color: #fff;" type="submit" class="btn btn-info" value="Login" /><br><br>
+            <a data-bs-toggle="modal" data-bs-target="#adminlogin" style="color: #fff;" href="">Login as Admin</a>
+            
+          </center>
+        </form>
+        <div class="modal fade" id="adminlogin" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" style="color: #000">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      LOGIN AS ADMIN
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form action="{{url_for('admin')}}" method="POST">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+{% endblock %}

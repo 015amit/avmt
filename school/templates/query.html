@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/query.css')}}" />
+{% endblock %} {% block content %}
+<div class="main">
+  <div class="left">
+    <div class="card" id="notice">
+      <h2 class="heading mt-2">QUERIES</h2>
+      <div class="card-body text-center">
+        {% for query in queries %}
+        <a
+          onclick="openTab(event, 'queries-{{query[0]}}')"
+          class="tablinks btn btn-sm btn-outline-info"
+          >{{ query[1] }} ({{ query[3] }})</a
+        >
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- **** -->
+  <div class="right">
+    {% for quer in queries %}
+    <div
+      id="queries-{{quer[0]}}"
+      class="container tabcontent queriee"
+      style="display: none"
+    >
+      <a id="reply" href="mailto:'{{quer[2]}}'" target="_blank"
+        ><i class="fas fa-reply"></i
+      ></a>
+      <h4>Name : &nbsp;&nbsp;{{quer[1]}}</h4>
+      <h4>Email : &nbsp;&nbsp;{{quer[2]}}</h4>
+      <h4>Phone : &nbsp;&nbsp;{{quer[4]}}</h4>
+      <h5>message : &nbsp;&nbsp;{{quer[5]}}</h5>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+{% endblock %}

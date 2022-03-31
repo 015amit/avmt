@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% include 'slide.html' %}{% block head %}
+<title>{{title}}</title>
+
+<link rel="stylesheet" href="static/css/student_info.css" />
+
+{% endblock %} {% block content %}
+<div class="account container">
+  {% if session['username'] == "admin" %}
+    {% else %}
+  <div class="row">
+    <div class="col">
+      <div class="fees1">
+        <ul id="main">
+          <li>Name: &nbsp;&nbsp; {{account[1]}}</li>
+          <li>Roll No: &nbsp;&nbsp;{{account[2]}}</li>
+          <li>DoB: &nbsp;&nbsp;{{account[3]}}</li>
+        </ul>
+
+        <!-- Modal -->
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  <div class="row">
+    {% if session['username'] == "admin" %}
+    {% else %}
+    <div class="col-lg-6">
+      <div class="fees">
+        <h2 class="heading">Check Your Dues</h2>
+        <div class="row">
+          <div class="col-lg-1"></div>
+          <p id="last">Last paid on 25-05-2021</p>
+        </div>
+        <div class="row">
+          <ul>
+            <li>
+              <p>Fees paid for</p>
+              <ul>
+                <li>Jan-2021</li>
+                <li>Feb-2021</li>
+                <li>Mar-2021</li>
+                <li>Apr-2021</li>
+              </ul>
+            </li>
+            <br /><br />
+            <li>
+              <p>Dues for</p>
+              <ul>
+                <li>May-2021</li>
+                <li>June-2021</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <div class="col-lg-6">
+      <div class="result">
+        <h2 class="heading">Check Results</h2>
+        <div class="row">
+          <ul>
+            {% for i in range(1,11) %}
+            
+            {% if i == account[4] and session['username'] != "admin" %}
+            <li><a id="class-{{i}}" style="color: rgb(2, 235, 251);" class="dark" href="">Class {{i}} Result</a></li>
+            {% else %}
+            <li><a id="class-{{i}}" href="{{url_for('getresult', id=i)}}" target="_blank">Class {{i}} Result</a></li>
+            {% endif %}
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

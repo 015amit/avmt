@@ -1,0 +1,113 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  crossorigin="anonymous"
+></script>
+
+<link rel="stylesheet" href="static/css/register.css" />
+
+{% endblock %} {% include 'slide.html' %}{% block content %}
+<div class="container">
+  <h2 class="heading">Register Online here</h2>
+  <br /><br />
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div id="ui">
+        <form class="form-group" action="{{url_for('register')}}" method="POST">
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="">First Name:</label>
+              <input class="form-control" name="fname" type="text" />
+            </div>
+            <div class="col-lg-6">
+              <label for="">Last Name:</label>
+              <input class="form-control" name="lname" type="text" />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="">Father's Name:</label>
+              <input class="form-control" name="fatname" type="text" />
+            </div>
+            <div class="col-lg-6">
+              <label for="">Mother's Name:</label>
+              <input class="form-control" name="motname" type="text" />
+            </div>
+          </div>
+          <br />
+          <label for="">E-mail</label>
+          <input type="email" name="email" class="form-control" />
+          <br />
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="">Gender</label>
+              <select name="gender" class="form-control">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <label for="">Phone No:</label>
+              <input class="form-control" name="phone" type="tel" />
+            </div>
+          </div>
+          <br />
+
+          <div class="row">
+            <div class="col-lg-6">
+              <label for="">Class Applying For:</label>
+              <select name="class" class="form-control">
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+                <option value="3">Class 3</option>
+                <option value="4">Class 4</option>
+                <option value="5">Class 5</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <label for="">Date Of Birth:</label>
+              <input class="form-control" name="dob" type="date" />
+            </div>
+          </div>
+          <br />
+          <label for="">Address</label>
+          <textarea rows="6" name="address" class="form-control"></textarea>
+          <br />
+          <label for="">Name of Previous School:</label>
+          <input class="form-control" name="pschool" type="text" /><br /><br />
+          <center>
+            <button class="btn btn-info">Submit</button>
+          </center>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+.container .card {
+    margin: 3rem auto;
+    border: none;
+    width: 100%;
+    background: none;
+    color: white;
+   
+}
+
+
+.calen {
+    background-color: rgb(46, 37, 37);
+}
+.card h3{
+    color: rgb(15, 222, 250);
+}
+.card ul li {
+    margin-left: 20px;
+    font-size: 23px;
+}
+.card a{
+    color: rgb(15, 222, 250);
+    cursor: pointer;
+    margin: 0.3rem 0;
+}
+.card p{
+    font-size: 18px;
+}
+
+
+

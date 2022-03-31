@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+  integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+  crossorigin="anonymous"
+></script>
+
+<link rel="stylesheet" href="static/css/curricular.css" />
+
+{% endblock %} {% include 'slide.html' %}{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="context col-lg-6">
+      <br />
+      <h2 class="heading">Welcome to School Athletics!</h2>
+      <br /><br />
+      <p>
+        From the time that children start preschool, all the way through the end
+        of elementary school, the playground is the main place where they spend
+        breaks and recess. Playground equipment isn’t there just for fun, it
+        actually helps kids develop important motor skills and problem-solving
+        skills. The school playground allows them to climb, jump, swing, and
+        slide. All of these movements are important building blocks of the gross
+        motor skills that they will constantly need to use throughout their
+        lives.
+      </p>
+    </div>
+    <div class="image col-lg-6">
+      <img src="static/images/sport.jpg" alt="sport event pic" />
+    </div>
+  </div>
+  <hr />
+  <br />
+  <div class="row">
+    <div class="image col-lg-6">
+      <img src="static/images/picnic.jpg" alt="sport event pic" />
+    </div>
+    <div class="context col-lg-6">
+      <br />
+      <h2 class="heading">Educational Tours!</h2>
+      <br /><br />
+      <p>
+        The School plans picnic and educational tours for the students. Students
+        may visit to places of natural importance, to Historical Places,
+        Meuseums, Factories, Research Institutions etc. to give them a first
+        hard knowledge.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

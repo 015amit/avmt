@@ -1,0 +1,166 @@
+.container {
+    width: 100%;
+
+    /* display: flex; */
+    flex-direction: row;
+    position: relative;
+
+}
+
+#m1,
+#m2,
+#m3 {
+
+    margin: 2rem auto;
+    border: none;
+    width: 100%;
+    background: none;
+    color: white;
+    font-weight: 400;
+    background-color: rgb(46, 37, 37);
+
+
+
+
+}
+
+#notice {
+    background-color: rgb(46, 37, 37);
+    color: #fff;
+    margin: 2rem 0;
+    height: 500px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 0.8rem;
+    font-size: 24px;
+    border-bottom: 2px dotted rgb(255, 45, 45);
+}
+.main{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+}
+
+.left {
+
+    width: 28%;
+    float: left;
+    margin-top: 0.8rem;
+}
+
+.right {
+    width: 70%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    float: right;
+}
+
+#m1 .card-body,
+#m2 .card-body,
+#m3 .card-body {
+    border-top: 2px solid rgb(255, 45, 45);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    font-weight: 300;
+}
+
+
+
+
+.card-body p {
+    font-size: 18px;
+    /* line-height: 10px; */
+    line-break: auto;
+    color: #fff;
+    padding: 2rem;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: space-evenly;
+}
+.card-body a{
+    padding: 1rem;
+}
+marquee {
+    color: red;
+}
+
+marquee .not {
+    padding: 0;
+}
+
+.card-header {
+    font-size: 22px;
+    text-align: center;
+}
+
+#phone {
+    display: none;
+    margin-top: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .left {
+        width: 100%;
+    }
+
+    
+    .card-body{
+            overflow-y: scroll;
+            /* margin-top: -3rem; */
+            padding-top: 10.2rem;
+            /* height: 228px; */
+            height: 74px;
+    }
+    .card-body a{
+        padding: 0.8rem;
+    }
+    #phone {
+        display: flex;
+    }
+
+    .right {
+        width: 100%;
+        float: none;
+    }
+    .main{
+        
+        
+        flex-direction: column;
+    }
+    #notice{
+        height: 238px;
+    }
+    
+}
+.navbar{
+    margin-top: 12rem;
+}
+
+
+  .container {
+      background-color: rgb(46, 37, 37);
+      margin: 5vh auto;
+      padding: 20px;
+  }
+
+
+
+
+.btn-info {
+    width: 50%;
+    background: transparent;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-info:hover {
+    transform: scale(1.05);
+}

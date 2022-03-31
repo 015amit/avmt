@@ -1,0 +1,49 @@
+{% extends 'base.html' %}{% include 'slide.html' %} {% block head%}
+<title>{{title}}</title>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="{{url_for('static',filename='css/teacher.css')}}"
+/>
+
+{% endblock %}
+
+ {% block content %}
+
+
+    <div class="container mt-5">
+      {% for teacher in teachers%}
+      
+       <div class="card mb-3">
+        
+        <div class="card-body">
+          <div class="imaget">
+            <img
+          class="card-img-top"
+          src="{{url_for('teacherimg', id = teacher[0])}}"
+          alt="Card image cap"
+        />
+          <h3 class="card-title">{{teacher[1]}}</h3>
+          </div>
+          
+<ul>
+  <li>Qualification: &nbsp;&nbsp;{{teacher[2]}}</li>
+  <li>Experience: &nbsp;&nbsp;&nbsp;{{teacher[3]}}  </li>
+  <li>Subject:&nbsp;&nbsp;&nbsp;{{teacher[4]}}</li>
+</ul>
+          </p>
+   
+        </div>
+      </div>
+      {% endfor %}
+
+    
+    </div>
+
+
+{% endblock %}

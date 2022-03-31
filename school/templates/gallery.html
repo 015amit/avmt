@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block head%}
+<title>{{title}}</title>
+<link rel="stylesheet" href="{{url_for('static',filename='css/gall.css')}}" />
+{% endblock %}{% include 'slide.html' %} {% block content %}
+
+<div
+  class="container"
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  "
+>
+{% for i in range(5,last[0]+10,10) %}
+  <div class="card" style="width: 18rem; margin: 2rem">
+    <img
+      class="card-img-top"
+      src="{{url_for('getimg',id=i)}}"
+      alt="Card image cap" id="img"
+    />
+  </div>
+{% endfor %}
+</div>
+
+
+
+
+{% endblock %}

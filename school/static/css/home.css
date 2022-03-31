@@ -1,0 +1,105 @@
+
+
+.container{
+    width: 100%;
+    
+    /* display: flex; */
+    flex-direction: row;
+    position: relative;
+    
+}
+#m1, #m2, #m3{
+
+     margin: 2rem auto;
+     border: none;
+     width: 100%;
+     background: none;
+     color: white;
+     font-weight: 400;
+      background-color: rgb(46, 37, 37);
+
+     
+     
+    
+ }
+ #notice{
+    background-color: rgb(46, 37, 37);
+    color: #fff;
+         margin: 2rem 0;
+         height: 500px;
+ }
+ .heading {
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2px dotted rgb(255, 45, 45);
+  }
+ .left{
+     
+     width: 28%;
+     float: left;
+ }
+ .right{
+     width: 70%;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     float: right;
+ }
+
+ #m1 .card-body,
+ #m2 .card-body,
+ #m3 .card-body {
+     border-top: 2px solid rgb(255, 45, 45);
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     color: white;
+     font-weight: 300;
+ }
+
+ .card-body img {
+     height: 300px;
+     width: 300px;
+     /* border-radius: 50%; */
+ }
+
+
+
+ .card-body p {
+     font-size: 18px;
+     /* line-height: 10px; */
+     line-break: auto;
+     color: #fff;
+     padding: 2rem;
+ }
+
+ marquee {
+     color: red;
+ }
+marquee .not{
+    padding: 0;
+}
+ .card-header {
+     font-size: 22px;
+     text-align: center;
+ }
+ #phone{
+     display: none;
+     margin-top: 1rem;
+ }
+@media screen and (max-width: 600px) {
+    .left{
+        display: none;
+    }
+    #phone{
+        display: flex;
+        align-items: center;
+        color: #fff;
+    }
+    .right{
+        width: 100%;
+        float: none;
+    }
+}
+

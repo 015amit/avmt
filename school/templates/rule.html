@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block head%}
+<title>{{title}}</title>
+<link rel="stylesheet" href="static/css/rule.css" />
+{% endblock %} {% include 'slide.html' %}{% block content %}
+
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <div class="text">
+        <h3 class="card-title">Rules to be followed by all the students</h3>
+        <p class="card-text">
+        <ol class="rules">
+          <li>All the students will attend school in proper and clean uniform every day. The class teachers and prefects
+            will check their uniform in the morning assembly</li>
+          <li>In the school campus, the students and staff are expected to speak only in English except in language
+            classes .</li>
+          <li>When the teacher enters the classroom , the students shall rise and remain standing till they are asked to
+            sit or till the teacher takes his / her seat</li>
+          <li> Students should see that no damage is done to school property . They should not write on the walls,
+            furniture or library books.</li>
+          <li>Students are advised not to bring mobiles , cell phones inside the school campus.</li>
+        </ol>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

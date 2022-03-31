@@ -1,0 +1,199 @@
+{% extends 'base.html' %} {% block head %}
+<title>{{title}}</title>
+<link rel="stylesheet" href="{{url_for('static', filename='css/query.css')}}" />
+{% endblock %} {% block content %}{% include 'messages.html' %}
+<div class="main">
+  <div class="left">
+    <div class="card" id="notice">
+      <h2 class="heading mt-2">DETAILS</h2>
+      <div class="card-body text-center">
+        <a
+          onclick="openTab(event, 'notices')"
+          class="tablinks active btn btn-sm btn-outline-info"
+          >NOTICES</a
+        >
+        <a
+          onclick="openTab(event, 'teachers')"
+          class="tablinks btn btn-sm btn-outline-info"
+          >TEACHERS</a
+        >
+        <a href="/student_details" class="tablinks btn btn-sm btn-outline-info"
+          >STUDENTS</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- **** -->
+  <div class="right">
+    <div id="notices" class="container tabcontent queriee">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Title</th>
+  
+              <th class="scope">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for notice in notices %}
+            <tr>
+              <th scope="row">{{loop.index}}</th>
+              <td>{{notice[1]}}</td>
+  
+              <td>
+                <a
+                  data-bs-toggle="modal"
+                  data-bs-target="#delete-{{notice[0]}}"
+                  href="#"
+                  ><i class="fas fa-trash"></i
+                ></a>
+              </td>
+              <div
+                class="modal fade"
+                id="delete-{{notice[0]}}"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog" style="color: #000">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        DELETE NOTICE FROM DATABASE
+                      </h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p style="color: #000">
+                        Are you sure want to delete?
+                        <br />
+  
+                        <h4><b>{{notice[1]}} </b></h4>
+                        
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <form
+                        action="{{url_for('deletenotice', id =notice[0])}}"
+                        method="POST"
+                      >
+                        <button type="submit" class="btn btn-sm btn-danger">
+                          Delete
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div
+      id="teachers"
+      class="container tabcontent queriee"
+      style="display: none"
+    >
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Experience</th>
+            <th class="scope">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for teacher in teachers %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{teacher[1]}}</td>
+            <td>{{teacher[4]}}</td>
+            <td>{{teacher[2]}}</td>
+            <td>{{teacher[3]}}</td>
+            <td>
+              <a
+                data-bs-toggle="modal"
+                data-bs-target="#delete-{{teacher[0]}}"
+                href="#"
+                ><i class="fas fa-trash"></i
+              ></a>
+            </td>
+            <div
+              class="modal fade"
+              id="delete-{{teacher[0]}}"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" style="color: #000">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      DELETE TEACHER FROM DATABASE
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="color: #000">
+                      Are you sure want to delete {{teacher[1]}} ?
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <form
+                      action="{{url_for('deleteteacher', id =teacher[0])}}"
+                      method="POST"
+                    >
+                      <button type="submit" class="btn btn-sm btn-danger">
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
+
+{% endblock %}

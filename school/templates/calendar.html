@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block head%}
+<title>{{title}}</title>
+<link rel="stylesheet" href="static/css/calendar.css" />
+{% endblock %} {% include 'slide.html' %}{% block content %}
+
+<div class="calen container mt-5" style="display: flex; flex-direction: column">
+  <div class="card">
+    <!-- <div class="row"> -->
+    <h3>Academic Session :</h3>
+    <p>
+      The session is from April to March of every subsequent year. The school
+      calendar is released in the beginning of the session every year.
+    </p>
+    <h3>Registrations :</h3>
+    <p>
+      All registration forms should be submitted either online or at the school
+      office during school hours.
+    </p>
+    <!-- </div> -->
+    <br /><br />
+    <ul>
+      <li><a href="#">Academic Calendar 2022-23</a></li>
+      <li><a href="#">Academic Calendar 2021-22</a></li>
+      <li><a href="#">Academic Calendar 2020-21</a></li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

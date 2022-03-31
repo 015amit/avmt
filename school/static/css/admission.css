@@ -1,0 +1,40 @@
+
+.container1 form {
+    margin: 2rem auto;
+    border: none;
+    width: 80%;
+    background: none;
+}
+
+.card-body {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-body p {
+    padding: 2rem;
+}
+
+marquee {
+    color: red;
+}
+
+.card-header {
+    text-align: center;
+}
+
+.card-img-top {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
